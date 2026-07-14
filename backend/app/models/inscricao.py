@@ -1,5 +1,5 @@
 import enum
-from datetime import datetime
+from datetime import datetime, timezone
 
 from sqlalchemy import DateTime, Enum, String
 from sqlalchemy.orm import Mapped, mapped_column, relationship
@@ -33,7 +33,9 @@ class Inscricao(Base):
     status: Mapped[Status] = mapped_column(
         Enum(Status, name="status_inscricao"), default=Status.pendente
     )
-    criado_em: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow)
+    criado_em: Mapped[datetime] = mapped_column(
+        DateTime, default=lambda: datetime.now(timezone.utc)
+    )
 
     acompanhantes: Mapped[list["Acompanhante"]] = relationship(
         back_populates="inscricao", cascade="all, delete-orphan"
