@@ -1,0 +1,33 @@
+/* Design tokens · DevConf Vertigo 2026 */
+:root {
+  /* Marca */
+  --cor-primaria: #6d28d9;
+  --cor-primaria-escura: #4c1d95;
+  --cor-fundo: #f8f7fc;
+  --cor-superficie: #ffffff;
+  --cor-texto: #1e1b2e;
+  --cor-texto-suave: #6b6580;
+  --cor-borda: #e4e0f0;
+  --cor-erro: #b91c1c;
+  --cor-erro-fundo: #fee2e2;
+
+  /* Status de inscrição */
+  --cor-status-pendente: #d97706;
+  --cor-status-confirmada: #16a34a;
+  --cor-status-lista-de-espera: #2563eb;
+  --cor-status-check-in-feito: #6d28d9;
+
+  /* Tipografia */
+  --fonte-titulo: 'Segoe UI', 'Inter', system-ui, sans-serif;
+  --fonte-texto: 'Segoe UI', 'Inter', system-ui, sans-serif;
+  --peso-titulo: 700;
+
+  /* Espaçamento e forma */
+  --espaco-1: 0.25rem;
+  --espaco-2: 0.5rem;
+  --espaco-3: 1rem;
+  --espaco-4: 1.5rem;
+  --espaco-5: 2.5rem;
+  --raio: 10px;
+  --sombra: 0 1px 3px rgba(30, 27, 46, 0.1);
+}
