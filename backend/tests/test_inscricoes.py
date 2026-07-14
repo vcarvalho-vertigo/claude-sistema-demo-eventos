@@ -13,6 +13,34 @@ def test_criar_inscricao_valida_retorna_201(client):
     assert corpo["status"] == "pendente"
 
 
+def test_criar_inscricao_nome_vazio_retorna_422(client):
+    resposta = client.post(
+        "/api/inscricoes",
+        json={
+            "nome_completo": "   ",
+            "email": "rafael.nogueira@exemplo.com.br",
+            "categoria": "participante",
+        },
+    )
+    assert resposta.status_code == 422
+    mensagens = [erro["msg"] for erro in resposta.json()["detail"]]
+    assert "Nome completo é obrigatório." in mensagens
+
+
+def test_criar_inscricao_email_invalido_retorna_422(client):
+    resposta = client.post(
+        "/api/inscricoes",
+        json={
+            "nome_completo": "Rafael Nogueira",
+            "email": "nao-e-um-email",
+            "categoria": "participante",
+        },
+    )
+    assert resposta.status_code == 422
+    mensagens = [erro["msg"] for erro in resposta.json()["detail"]]
+    assert "E-mail inválido." in mensagens
+
+
 def test_listar_retorna_registros_do_seed(client):
     resposta = client.get("/api/inscricoes")
     assert resposta.status_code == 200
