@@ -1,8 +1,8 @@
 # DevConf Vertigo 2026 · Sistema de Inscrições
 
-Gestão de inscrições do DevConf Vertigo 2026: inscrição pública,
-acompanhantes e ciclo de status (pendente → confirmada → check-in;
-lista de espera → confirmada).
+Gestão de inscrições do DevConf Vertigo 2026: o participante se inscreve
+pelo formulário público e a inscrição passa por um ciclo de aprovação
+simples (pendente → confirmada).
 
 ## Stack
 
@@ -19,6 +19,13 @@ FastAPI + SQLAlchemy + PostgreSQL 16 (API) · React + TypeScript + Vite (web) ·
 | API | http://localhost:18000 (docs em /docs) |
 | Web | http://localhost:13000 |
 | PostgreSQL | localhost:55432 (devconf/devconf) |
+
+## Endpoints
+
+| Método | Rota | Descrição |
+|--------|------|-----------|
+| `GET` | `/api/inscricoes` | Lista inscrições |
+| `POST` | `/api/inscricoes` | Cria inscrição (formulário público) |
 
 ## Desenvolvimento
 
